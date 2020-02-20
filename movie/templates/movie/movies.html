@@ -1,0 +1,90 @@
+{% extends 'movie/base.html' %}
+{% block title %}
+<title>Movies</title>
+{% endblock %}
+{% block content %}
+    {% if messages %}
+    {% for message in messages %}
+        <div class="alert alert-success">{{ message }}</div>
+    {% endfor %}
+    {% endif %}
+
+    <div class="mb-5 fwidth">
+        <div class="border p-3"><strong>Popular movies</strong></div>
+        <div class="border p-3 movie_con_a">
+            <span class="scroll_left"><i>ss</i></span>
+            <span class="scroll_right"><i>ss</i></span>
+            <div class="movie_con">
+                {% with img="https://image.tmdb.org/t/p/w500" %}
+                {% for movie in pmovies %}
+
+                <a href="{% url 'movie:detail' movie.id %}">
+                    <span class="firstspan">{{ movie.vote_average }}</span>
+                    <img src="{{ img }}{{ movie.poster_path }}">
+                    <span>{{ movie.title }}</span>
+                    <span class="ribbon"><span class="lastspan">bluray</span></span>
+                </a>
+                {% endfor %}
+                {% endwith %}
+            </div>
+        </div>
+    </div>
+    <div class="mb-5 fwidth">
+        <div class="border p-3"><strong>Top rated movies</strong></div>
+        <div class="border p-3 movie_con_a">
+            <span class="scroll_left"><i>ss</i></span>
+            <span class="scroll_right"><i>ss</i></span>
+            <div class="movie_con">
+                {% with img="https://image.tmdb.org/t/p/w500" %}
+                {% for movie in rmovies %}
+
+                <a href="{% url 'movie:detail' movie.id %}">
+                    <span class="firstspan">{{ movie.vote_average }}</span>
+                    <img src="{{ img }}{{ movie.poster_path }}">
+                    <span>{{ movie.title }}</span>
+                    <span class="ribbon"><span class="lastspan">bluray</span></span>
+                </a>
+                {% endfor %}
+                {% endwith %}
+            </div>
+        </div>
+    </div>
+    <div class="mb-5 fwidth">
+        <div class="border p-3"><strong>Now in theaters movies</strong></div>
+        <div class="border p-3 movie_con_a">
+            <span class="scroll_left"><i>ss</i></span>
+            <span class="scroll_right"><i>ss</i></span>
+            <div class="movie_con">
+                {% with img="https://image.tmdb.org/t/p/w500" %}
+                {% for movie in nmovies %}
+                <a href="{% url 'movie:detail' movie.id %}">
+                    <span class="firstspan">7.8</span>
+                    <img src="{{ img }}{{ movie.poster_path }}">
+                    <span>{{ movie.title }}</span>
+                    <span class="ribbon"><span class="lastspan">bluray</span></span>
+                </a>
+                {% endfor %}
+                {% endwith %}
+            </div>
+        </div>
+    </div>
+    <div class="mb-5 fwidth">
+        <div class="border p-3"><strong>Upcomin movies</strong></div>
+        <div class="border p-3 movie_con_a">
+            <span class="scroll_left"><i>ss</i></span>
+            <span class="scroll_right"><i>ss</i></span>
+            <div class="movie_con">
+                {% with img="https://image.tmdb.org/t/p/w500" %}
+                {% for movie in umovies %}
+                <a href="{% url 'movie:detail' movie.id %}">
+                    <span class="firstspan">7.8</span>
+                    <img src="{{ img }}{{ movie.poster_path }}">
+                    <span>{{ movie.title }}</span>
+                    <span class="ribbon"><span class="lastspan">bluray</span></span>
+                </a>
+                {% endfor %}
+                {% endwith %}
+            </div>
+        </div>
+    </div>
+{% endblock %}

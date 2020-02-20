@@ -1,0 +1,163 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    {% block title %}
+    <title>Title</title>
+    {% endblock %}
+    <link rel="stylesheet" href="{% static 'movie/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static "movie/css/main.css" %}">
+    <script src="{% static 'movie/js/jquery.js' %}"></script>
+    <script src="{% static 'movie/js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'movie/js/script.js' %}"></script>
+    <script>
+
+        function myFunction() {
+                mydiv = document.getElementById("mydiv");
+                api_key = "b25b7ca4810bc48de0aadc57d2277175";
+                movie = document.getElementById("movie").value;
+                var myrequest = new XMLHttpRequest();
+                myrequest.onreadystatechange = function () {
+                    if (this.readyState === 4 && this.status === 200) {
+                        //movie.deleteContents()
+                        //mydiv.parentNode.removeChild(mydiv)
+                        while(mydiv.firstChild){
+                            mydiv.firstChild.remove()
+                        }
+                        results = JSON.parse(this.responseText).results;
+                        var image="https://image.tmdb.org/t/p/w500";
+                        for (var i = 0; i < 6; i++){
+                            //console.log(results[i].title)
+                            img = image + results[i].poster_path;
+                            a = document.createElement('a');
+                            //imag = document.createElement('img')
+                            a.innerHTML = '<img src=' + img + ' style="width: 30px">' + results[i].title + ''
+                            mydiv.appendChild(a)
+                        }
+                    }
+                }
+                myrequest.open("GET", "https://api.themoviedb.org/3/search/movie?api_key=" + api_key +
+                    "&language=en-US&query=" + movie + "&page=1&include_adult=false", true)
+                myrequest.send()
+
+                document.onclick = function (e) {
+                    if (e.target.id !== 'mydiv' && e.target.id !== 'movie')  {
+                        mydiv.style.display = 'none'
+                    }else {
+                        mydiv.style.display = 'block'
+                    }
+
+                }
+            }
+
+    </script>
+ </head>
+<body>
+<nav class="navbar navbar-expand-md navbar-light mynav">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#">brand</a>
+        <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#mytarget">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="mytarget">
+            <ul class="nav navbar-nav">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">test</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">test</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" role="button">dropdown</a>
+                    <div class="dropdown-menu">
+                        <a href="#" class="dropdown-item">item</a>
+                        <a href="#" class="dropdown-item">item</a>
+                        <a href="#" class="dropdown-item">item</a>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">another</a>
+                </li>
+            </ul>
+            <form class="form-inline m-auto" method="get" action="{% url 'tv:search' %}">
+                <input onkeyup="myFunction()" id="movie" type="search" placeholder="search" name="q" class="form-control">
+                <button type="submit" class="btn btn-outline-success">search</button>
+                <div class="slist" id="mydiv">
+                    {% for movie in object_list %}
+
+                    {% endfor %}
+                </div>
+            </form>
+            <ul class="nav navbar-nav m-auto">
+                <li class="nav-item">
+                    <a href="#" class="nav-link">Login</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">Sign up</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<div class="mb-3 bground mymain">
+    <div class="bground tc position-fixed first">
+        <a href="{% url 'movie:movies' %}" class="bg-white border p-2"><i></i>Movies</a>
+        <a href="" class="bg-white border p-2"><i></i>Tv</a>
+        <a href="" class="bg-white border p-2"><i></i>My</a>
+    </div>
+    <div class="bground tc main">
+    {% block content %}
+    {% endblock content %}
+    </div>
+    <div class="bground mybtn">
+        <div class="a b">
+            <a href="#" class="btn btn-success pl-5 pr-5 mb-2">arabic</a>
+            <a href="#" class="btn btn-success pl-5 pr-5 mb-2">arabic</a>
+            <a href="#" class="btn btn-success pl-5 pr-5 mb-2">arabic</a>
+            <a href="#" class="btn btn-success pl-5 pr-5 mb-2">arabic</a>
+            <a href="#" class="btn btn-success pl-5 pr-5 mb-2">arabic</a>
+            <a href="#" class="btn btn-success pl-5 pr-5 mb-2">arabic</a>
+            <a href="#" class="btn btn-success pl-5 pr-5 mb-2">arabic</a>
+            <a href="#" class="btn btn-success pl-5 pr-5 mb-2">arabic</a>
+            <a href="#" class="btn btn-success pl-5 pr-5 mb-2">arabic</a>
+            <a href="#" class="btn btn-success pl-5 pr-5 mb-2">arabic</a>
+            <a href="#" class="btn btn-success pl-5 pr-5 mb-2">arabic</a>
+            <a href="#" class="btn btn-success pl-5 pr-5 mb-2">arabic</a>
+            <a href="#" class="btn btn-success pl-5 pr-5 mb-2">arabic</a>
+            <a href="#" class="btn btn-success pl-5 pr-5 mb-2">arabic</a>
+            <a href="#" class="btn btn-success pl-5 pr-5 mb-2">arabic</a>
+            <a href="#" class="btn btn-success pl-5 pr-5 mb-2">arabic</a>
+            <a href="#" class="btn btn-success pl-5 pr-5 mb-2">arabic</a>
+            <a href="#" class="btn btn-success pl-5 pr-5 mb-2">arabic</a>
+            <a href="#" class="btn btn-success pl-5 pr-5 mb-2">arabic</a>
+            <a href="#" class="btn btn-success pl-5 pr-5 mb-2">arabic</a>
+            <a href="#" class="btn btn-success pl-5 pr-5 mb-2">arabic</a>
+            <a href="#" class="btn btn-success pl-5 pr-5 mb-2">arabic</a>
+            <a href="#" class="btn btn-success pl-5 pr-5 mb-2">arabic</a>
+            <a href="#" class="btn btn-success pl-5 pr-5 mb-2">arabic</a>
+            <a href="#" class="btn btn-success pl-5 pr-5 mb-2">arabic</a>
+            <a href="#" class="btn btn-success pl-5 pr-5 mb-2">arabic</a>
+            <a href="#" class="btn btn-success pl-5 pr-5 mb-2">arabic</a>
+            <a href="#" class="btn btn-success pl-5 pr-5 mb-2">arabic</a>
+            <a href="#" class="btn btn-success pl-5 pr-5 mb-2">arabic</a>
+            <a href="#" class="btn btn-success pl-5 pr-5 mb-2">arabic</a>
+            <a href="#" class="btn btn-success pl-5 pr-5 mb-2">arabic</a>
+            <a href="#" class="btn btn-success pl-5 pr-5 mb-2">arabic</a>
+            <a href="#" class="btn btn-success pl-5 pr-5 mb-2">arabic</a>
+            <a href="#" class="btn btn-success pl-5 pr-5 mb-2">arabic</a>
+            <a href="#" class="btn btn-success pl-5 pr-5 mb-2">arabic</a>
+            <a href="#" class="btn btn-success pl-5 pr-5 mb-2">arabic</a>
+            <a href="#" class="btn btn-success pl-5 pr-5 mb-2">arabic</a>
+            <a href="#" class="btn btn-success pl-5 pr-5 mb-2">arabic</a>
+            <a href="#" class="btn btn-success pl-5 pr-5 mb-2">arabic</a>
+            <a href="#" class="btn btn-success pl-5 pr-5 mb-2">arabic</a>
+        </div>
+    </div>
+</div>
+<footer class=" footer text-center bg-secondary">
+    footer
+</footer>
+
+</body>
+</html>

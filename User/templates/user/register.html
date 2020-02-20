@@ -1,0 +1,16 @@
+{% extends 'movie/base.html' %}
+{% block content %}
+    <div class="row">
+    <form method="post">
+    {% csrf_token %}
+    {% for field in form %}
+        <div class="form-group">
+            <div>{{ field.errors }}</div>
+            <label>{{ field.label_tag }}</label>
+            <div>{{ field }}</div>
+        </div>
+    {% endfor %}
+    <input type="submit" class="btn btn-success" value="register">
+    </form>
+    </div>
+{% endblock %}

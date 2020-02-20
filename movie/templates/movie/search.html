@@ -1,0 +1,28 @@
+{% extends 'movie/base.html' %}
+{% block content %}
+    {% if messages %}
+    {% for message in messages %}
+        <div class="alert alert-success">{{ message }}</div>
+    {% endfor %}
+    {% endif %}
+
+    <div class="mb-3 fwidth">
+        <div class="border p-3"><strong>Search results</strong></div>
+        <div class="border p-3 movie_con_a">
+            <span class="scroll_left"><i>ss</i></span>
+            <span class="scroll_right"><i>ss</i></span>
+            <div class="movie_con">
+                {% for movie in object_list %}
+                <a href="{% url 'movie:detail' movie.id %}">
+                    <span class="firstspan">{{ movie.vote_average }}</span>
+                    {% with img="https://image.tmdb.org/t/p/w500" %}
+                    <img src="{{ img }}{{ movie.poster_path }}">
+                    {% endwith %}
+                    <span>{{ movie.name }}</span>
+                    <span class="ribbon"><span class="lastspan">bluray</span></span>
+                </a>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+{% endblock %}

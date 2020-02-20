@@ -1,0 +1,225 @@
+*{
+    background-color: #ffffff;
+}
+html, body, .bground{
+    background-color: #ECF0F0;
+}
+.mynav{
+    position: fixed;
+    z-index: 30;
+    left: 0;
+    top: 0;
+    width: 100%;
+}
+.mymain{margin-top: 65px}
+.tc{display: table-cell;}
+.main{
+    padding-left: 205px;
+    padding-right: 300px;
+    width: 75%;
+}
+.mybtn{
+    vertical-align: top;
+}
+.b{
+    position: fixed;
+    right: 0;
+    top: 67px;
+    width: 289px
+}
+.first{
+    width: 190px;
+}
+.first a{display: block}
+.full{
+    width: 100%;
+}
+nav form{position: relative}
+.slist{
+    position: absolute;
+    width: 100%;
+    top: 38px;
+    box-shadow: 0 2px 2px 0 #aaa;
+    background: #FFF;
+    border: 1px solid #ccc;
+    border-top: none;
+    border-radius: 0 0 2px 2px;
+    overflow: hidden;
+}
+.slist a{
+    display: block;
+    padding: 5px;
+    border-bottom: 1px solid #eee;
+    white-space: nowrap;
+}
+.fwidth{width: 168%;}
+.mytable{
+    width: 100%;
+    background-color: #ECF0F0;
+}
+.mytable td, .mystable th, .mystable td{
+    border: 3px solid #ECF0F0;
+}
+.mystable th, .mystable td{padding: 5px}
+.mytable td:first-child{
+    width: 1px;
+}
+.myborder{
+    border: 3px solid #ECF0F0;
+}
+.mytablepic{
+    background: #ECF0F0;
+    padding-right: 10px;
+
+}
+/* draw a circle
+   start with rotate 0
+   draw circle 4 after 50% progress
+ */
+.circle1 {
+      width: 80px;
+      height: 80px;
+      border: 10px solid gray;
+      border-radius: 50px;
+      position: absolute;
+    }
+.circle2 {
+      width: 80px;
+      height: 80px;
+      border: 10px solid green;
+      border-radius: 50px;
+      position: absolute;
+      clip: rect(0px, 50px, 100px, 0px);
+      transform: rotate(180deg);
+    }
+.circle3 {
+      width: 80px;
+      height: 80px;
+      border: 10px solid gray;
+      border-radius: 50px;
+      position: absolute;
+      clip: rect(0px, 50px, 100px, 0px);
+      transform: rotate(0deg);
+    }
+.circle4 {
+      width: 80px;
+      height: 80px;
+      border: 10px solid green;
+      border-radius: 50px;
+      position: absolute;
+      clip: rect(0px, 100px, 100px, 50px);
+      transform: rotate(30deg);
+    }
+/* end circle */
+/* start rate*/
+.rrate{position: relative;display: inline-block; width: 6em;    height: 3em;}
+.arate{
+    position: absolute;
+    left: 25px;
+    top: 25px;
+    z-index: 1;
+}
+.ratediv{height: 7em;}
+/* end rate */
+.movie_con_a{
+    position: relative;
+    width: 100%;
+    height: 290px;
+}
+.scroll_left{
+    //background-color: red;
+    position: absolute;
+    width: 50px;
+    left: 0;
+    height: 50px;
+    z-index: 2;
+    top: 40%;
+    display: none;
+}
+.scroll_right{
+    //background-color: red;
+    position: absolute;
+    width: 50px;
+    right: 0;
+    height: 50px;
+    z-index: 2;
+    top: 40%;
+}
+.scroll_left i{
+    position: absolute;
+    top: 12px;
+    left: 16px;
+}
+.scroll_right i{
+    position: absolute;
+    top: 12px;
+    right: 16px;
+}
+.movie_con{
+    position: absolute;
+    width: 100%;
+    left: 0;
+    height: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+}
+.movie_con a{
+    position: relative;
+    width: 155px;
+    height: auto;
+    margin: 15px 10px 10px 8px;
+    white-space: normal;
+    display: inline-block;
+    vertical-align: top;
+}
+.firstspan{
+    position: absolute;
+    background-color: transparent;
+    right: 10px;
+    font-weight: bold;
+    top: 10px;
+    color: #000;
+}
+.movie_con a span:nth-child(3){
+    display: block;
+    text-align: center;
+    margin-top: inherit;
+}
+.ribbon{
+    background-color: transparent;
+    position: absolute;
+    left: -5px;
+    top: -5px;
+    z-index: 1;
+    overflow: hidden;
+    width: 75px;
+    height: 75px;
+}
+.lastspan{
+    //border-top: 30px solid red;
+    width: 100px;
+    height: 30px;
+    display: inline-block;
+    transform: rotate(-37deg);
+    left: -21px;
+    top: 10px;
+    position: absolute;
+    text-align: center;
+    background-color: #005cbf;
+    color: white;
+}
+.lastspan:before{
+    content: '';
+    position: absolute;
+    left: 0px;
+    top: 100%;
+    z-index: -1;
+    border-left: 3px solid #ff4136;
+    border-right: 3px solid transparent;
+    border-bottom: 3px solid transparent;
+    border-top: 3px solid #ff4136;
+}
+.movie_con a img{
+    width: 155px;
+    height: 200px;
+}

@@ -1,0 +1,26 @@
+{% extends 'movie/base.html' %}
+{% block content %}
+    {% if messages %}
+    {% for message in messages %}
+        <div class="alert alert-success">{{ message }}</div>
+    {% endfor %}
+    {% endif %}
+
+    <div class="mb-3 fwidth">
+        <div class="border p-3"><strong>Similar movies</strong></div>
+        <div class="border p-3 movie_con_a">
+            <span class="scroll_left"><i>ss</i></span>
+            <span class="scroll_right"><i>ss</i></span>
+            <div class="movie_con">
+                {% for movie in movies %}
+                <a href="">
+                    <span class="firstspan">7.8</span>
+                    <img src="{{ movie.pic.url }}">
+                    <span>{{ movie.pic.url}}</span>
+                    <span class="ribbon"><span class="lastspan">bluray</span></span>
+                </a>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,222 @@
+{% extends 'movie/base.html' %}
+{% block title %}
+    <title>{{ movie.title }}</title>
+{% endblock %}
+{% block content %}
+    <div class="table">
+        <div class="d-table-cell mytablepic">
+            <div>
+                {% with img="https://image.tmdb.org/t/p/w500" %}
+                <img src="{{ img }}{{ movie.poster_path }}" style="width: 300px;height: 420px;position: relative">
+                {% endwith %}
+            </div>
+            <span></span>
+            <a href="#" class="btn btn-success"><i></i>download</a>
+        </div>
+        <div class="d-md-table-cell mytable" style="vertical-align: top">
+            <table class="full">
+                <tbody>
+                    <tr>
+                        <td colspan="2">
+                            <h1>{{ movie.title }}<a href="#"></a></h1>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>original Language</td>
+                        <td>
+                            <a href="">{{ movie.original_language }}</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>spoken Language</td>
+                        <td>
+                            {% for lang in movie.spoken_languages %}
+                            <a href="">{{ lang.name }}</a>
+                            {% endfor %}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Country</td>
+                        <td>
+                            {% for country in movie.production_countries %}
+                            <a href=""><i></i>{{ country.name }}</a>
+                            {% endfor %}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>genre</td>
+                        <td>
+                            {% for genre in movie.genres %}
+                            <a href="">
+                            {{ genre.name }}
+                            </a>
+                            &nbsp;
+                            {% endfor %}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Rate</td>
+                        <td>
+                            <i></i>
+                            <strong>{{ movie.vote_average }}</strong>
+                            <span>{{ movie.vote_count }}</span>
+                            votes
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Time</td>
+                        <td>{{ movie.runtime }} min</td>
+                    </tr>
+                    <tr>
+                        <td>Release Date</td>
+                        <td>{{ movie.release_date }}</td>
+                    </tr>
+                    <tr>
+                        <td>revenue</td>
+                        <td>{{ movie.revenue }} US</td>
+                    </tr>
+                    <tr>
+                        <td>budget</td>
+                        <td>{{ movie.budget}} US</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="mb-3">
+        <div class="border p-3"><strong>viwers rating</strong></div>
+        <div class="border p-3 ratediv">
+            <div class="ml-5">
+                <span class="rrate">
+                    <span class="arate">
+                        95
+                        <small style="vertical-align: super">%</small>
+                    </span>
+                        <span class="circle1"></span>
+                        <span class="circle2"></span>
+                        <span class="circle3"></span>
+                        <span class="circle4"></span>
+                </span>
+                <span class='mr-2'>
+                liked it wsdasfaefgaefaef
+                </span>
+                <span class="m-5"><a href="#"><i></i>like</a></span>
+                <span><a href="#"><i></i>dislike</a></span>
+            </div>
+        </div>
+    </div>
+    <div class="mb-3">
+        <div class="border p-3">
+            <strong>Story</strong>
+        </div>
+        <div class="border p-2">{{ movie.overview }}</div>
+    </div>
+    <div class="mb-3">
+        <div class="border p-3"><strong>Trailer</strong></div>
+        <div class="border p-3">
+            tr
+        </div>
+    </div>
+    <div class="mb-3">
+        <div class="border p-3"><strong>Actors</strong></div>
+        <div class="border p-3 text-center" style="height: 29rem">
+            {% for cast in casts %}
+                <a href="" style="width: 33%;display: block;float: left;">
+                    {% with img="https://image.tmdb.org/t/p/w500" %}
+                    <img src="{{ img }}{{ cast.profile_path }}" style="width: 45%;border-radius: 50%">
+                    {% endwith %}
+                    <span style="display: block;">{{ cast.name }}</span>
+                    <span>{{ cast.character }}</span>
+                </a>
+            {% empty %}
+                <h3 class="text-center">Unknown actors</h3>
+            {% endfor %}
+        </div>
+    </div>
+    <div class="text-center mb-3 clearfix">
+        <div class="border p-3">
+            <strong>watch</strong>
+        </div>
+        <iframe style="width: 100%;height: 30em"></iframe>
+    </div>
+    <div class="mb-3 p-2">
+    if user
+    </div>
+    <table  class="full text-center mystable mb-3">
+        <thead>
+            <tr>
+                <th>g</th>
+                <th colspan="2">ressolution</th>
+                <th>size</th>
+                <th colspan="4">download</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>hdrip</td>
+                <td colspan="2"><i></i>full hd</td>
+                <td>1.7</td>
+                <td colspan="4">
+                    <a class="btn btn-success">download</a>
+                    <a class="btn btn-dark">watch</a>
+                </td>
+            </tr>
+            <tr>
+                <td>hdrip</td>
+                <td colspan="2"><i></i>full hd</td>
+                <td>1.7</td>
+                <td colspan="4">
+                    <a class="btn btn-success">download</a>
+                    <a class="btn btn-dark">watch</a>
+                </td>
+            </tr>
+            <tr>
+                <td>hdrip</td>
+                <td colspan="2"><i></i>full hd</td>
+                <td>1.7</td>
+                <td colspan="4">
+                    <a class="btn btn-success">download</a>
+                    <a class="btn btn-dark">watch</a>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">hdrip</td>
+                <td><i></i>full hd</td>
+                <td>1.7</td>
+                <td colspan="4">
+                    <a class="btn btn-success">download</a>
+                    <a class="btn btn-dark">watch</a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <div class="mb-3">
+        <div class="border p-3"><strong>Similar movies</strong></div>
+        <div class="border p-3 movie_con_a">
+            <span class="scroll_left"><i>ss</i></span>
+            <span class="scroll_right"><i>ss</i></span>
+            <div class="movie_con">
+                {% for movie in smovie %}
+                <a href="{% url 'movie:detail' movie.id %}">
+                    <span class="firstspan">{{ movie.vote_average }}</span>
+                    {% with img="https://image.tmdb.org/t/p/w500" %}
+                    <img src="{{ img }}{{ movie.poster_path }}">
+                    {% endwith %}
+                    <span>{{ movie.title }}</span>
+                    <span class="ribbon"><span class="lastspan">bluray</span></span>
+                </a>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+    <div class="mb-3">
+        <div class="border p-3"><strong>Comments</strong></div>
+
+        {% for review in reviews %}
+        <div class="border p-3">
+            <h5>{{ review.author }}</h5>
+            <div style="white-space: nowrap;overflow: hidden;text-overflow: ellipsis">{{ revisew.content }}</div>
+        </div>
+        {% endfor %}
+    </div>
+{% endblock %}
